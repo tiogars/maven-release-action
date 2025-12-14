@@ -52,6 +52,7 @@ runs:
         git push origin $TAG
       shell: bash
 
+    # https://docs.github.com/fr/actions/tutorials/publish-packages/publish-java-packages-with-maven#publication-de-packages-sur-github-packages
     - run: mvn --batch-mode deploy
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
