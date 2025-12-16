@@ -24,7 +24,7 @@ runs:
         java-version: '21'
         cache: 'maven'
 
-    - run: echo ::set-output name=version::$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)
+    - run: echo "name=version::$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)" >> $GITHUB_OUTPUT
       id: current-snapshot-version
       shell: bash
 
@@ -34,7 +34,7 @@ runs:
     - run: mvn versions:set -DremoveSnapshot=true
       shell: bash
 
-    - run: echo ::set-output name=version::$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)
+    - run: echo "name=version::$(mvn help:evaluate -Dexpression='project.version' -q -DforceStdout)" >> $GITHUB_OUTPUT
       id: tag-version
       shell: bash
 
