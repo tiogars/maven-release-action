@@ -22,10 +22,10 @@ jobs:
 
     permissions:
       contents: read
-      packages: read
+      packages: write
 
     steps:
-      - uses: tiogars/maven-site-action@v1
+      - uses: tiogars/maven-release-action@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
